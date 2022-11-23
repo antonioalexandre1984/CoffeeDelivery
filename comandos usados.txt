@@ -1,0 +1,10 @@
+1- npm create vite@latest coffeedelivery -- --template react-ts
+2- yarn add styled-components
+3- yarn add @types/styled-components -D 
+4- yarn add react-router-dom
+5- yarn add phosphor-react
+6- yarn add polished
+7 - yarn add immer
+8 - yarn add react-hook-form
+9 - yarn add zod
+10- yarn add @hookform/resolvers
