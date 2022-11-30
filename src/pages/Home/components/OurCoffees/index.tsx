@@ -1,6 +1,6 @@
-import { TitleText } from '../../components/Typography';
-import { coffees } from '../../data/coffees';
-import { CoffeeCard } from '../Home/components/CoffeeCard';
+import { TitleText } from '../../../../components/Typography';
+import { coffees } from '../../../../data/coffees';
+import { CoffeeCard } from '../CoffeeCard';
 import { OurCoffeesContainer, OurCoffeeList } from './styles';
 
 export function OurCoffees() {

@@ -1,4 +1,4 @@
-import { OurCoffees } from '../OurCoffees';
+import { OurCoffees } from './components/OurCoffees';
 import { Intro } from './components/Intro';
 import { HomeContainer } from './styles';
 

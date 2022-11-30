@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const CompleteOrderContainer = styled.div`
+export const CompleteOrderContainer = styled.form`
+width: 100%;
 display: flex;
 margin-top: 2.5rem;
 justify-content: space-between;

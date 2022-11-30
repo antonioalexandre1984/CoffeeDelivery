@@ -1,18 +1,23 @@
 import styled from 'styled-components';
 
-export const CoffeeCartCardContainer = styled.div`
+interface QuatityInputContainerProps {
+    size?: 'small' | 'medium';
+}
+
+export const CoffeeCartCardContainer = styled.div<QuatityInputContainerProps>`
 width: 100%;
 display: flex;
 align-items: center;
 justify-content: space-between;
 
-border-bottom: 1px ${({ theme }) => theme.colors['base-button']};
+border-bottom: 1px solid ${({ theme }) => theme.colors['base-button']};
 padding-bottom: 1.5rem;
 margin-bottom: 1.5rem;
 
 >div{
     display: flex;
-    align-items: center;gap:1.25rem;
+    align-items: center;
+    gap: 1.25rem;
     img{
         width: 4rem;
         height: 4rem;
