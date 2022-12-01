@@ -10,12 +10,13 @@ import {
   AddCardWrapper
 } from './styles';
 import { formatMoney } from '../../../../utils/formatMoney';
-
+import { useCart } from '../../../../hooks/useCart';
+import { useState } from 'react';
 interface CoffeeCardProps {
   coffee: Coffee;
 }
 
-interface Coffee {
+export interface Coffee {
   id: number;
   name: string;
   description: string;
@@ -25,7 +26,29 @@ interface Coffee {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const [quantity, setQuantity] = useState(1);
+
+  function handleIncrease() {
+    setQuantity(quantity + 1);
+  }
+
+  function handleDecrease() {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
+
+  const { addCoffeeToCart } = useCart();
+
   const formattedPrice = formatMoney(coffee.price);
+
+  function handleAddToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    };
+    addCoffeeToCart(coffeeToAdd);
+  }
   return (
     <CoffeeCardContainer>
       <img src={`/coffees/${coffee.photo}`} />
@@ -42,8 +65,14 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
           <TitleText size='m' color='text' as='strong'>{formattedPrice}</TitleText>
         </div>
         <AddCardWrapper>
-          <QuantityInput />
-          <button>
+          <QuantityInput
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            quantity={quantity}
+          />
+          <button
+            onClick={handleAddToCart}
+          >
             <ShoppingCart size={22} weight='fill' />
           </button>
         </AddCardWrapper>

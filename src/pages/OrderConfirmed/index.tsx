@@ -4,9 +4,27 @@ import { RegularText, TitleText } from '../../components/Typography';
 import { OrderConfirmedPageContainer, OrderDetailContainer } from './styles';
 import confirmedOrderIllustration from '../../assets/confirmed-order.svg';
 import { useTheme } from 'styled-components';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { OrderData } from '../CompleteOrder';
+import { paymentMethods } from '../CompleteOrder/Components/PaymentMethodOptions';
+import { useEffect } from 'react';
+
+interface LocationType {
+  state: OrderData
+}
 
 export function OrderConfirmedPage() {
   const { colors } = useTheme();
+  const { state } = useLocation() as unknown as LocationType;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/');
+    }
+  }, []);
+  if (!state) return <></>
+
   return (
     <OrderConfirmedPageContainer className='container'>
       <div>
@@ -20,8 +38,8 @@ export function OrderConfirmedPage() {
           <InfoWithIcon
             icon={<MapPin weight='fill' />}
             iconBg={colors['brand-purple']}
-            text={<RegularText size='s' color='subtitle'>Entrega Em <strong>Rua José Clemente,46</strong> <br />
-              Malvinas ,campina grande - PB</RegularText>}
+            text={<RegularText size='s' color='subtitle'>Entrega Em <strong>{state.street},{state.number}</strong> <br />
+              {state.district} ,{state.city} - {state.uf}</RegularText>}
             title=''
           />
           <InfoWithIcon
@@ -35,7 +53,7 @@ export function OrderConfirmedPage() {
             icon={<CurrencyDollar weight='fill' />}
             iconBg={colors['brand-yellow-dark']}
             text={<RegularText size='s' color='subtitle'>Pagamento da entrega <br />
-              <strong>Cartão de crédito</strong></RegularText>} title=''
+              <strong>{paymentMethods[state.paymentMethod].label}</strong></RegularText>} title=''
           />
         </OrderDetailContainer>
         <img src={confirmedOrderIllustration} />

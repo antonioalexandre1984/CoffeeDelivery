@@ -8,3 +8,4 @@
 8 - yarn add react-hook-form
 9 - yarn add zod
 10- yarn add @hookform/resolvers
+11- yarn add @hookform/resolvers
