@@ -71,9 +71,9 @@ ${({ variant, theme }) => css`
 ${({ variant, theme }) =>
         variant === 'purple' &&
         css`
-        svg{
-                color: ${theme.colors['brand-purple']};
-        }
+       svg {
+        color: ${({ theme }) => theme.colors[`brand-${variant}`]};
+      }
 `}
 
 `;

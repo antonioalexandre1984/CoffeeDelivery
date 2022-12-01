@@ -29,30 +29,37 @@ export function AddressForm() {
         placeholder='Rua'
         className='street'
         {...register('street')}
+        error={errors.street?.message}
       />
       <Input
         placeholder='Número'
         className='number'
         {...register('number')}
+        error={errors.number?.message}
       />
       <Input
         placeholder='Complemento'
         className='complement'
         {...register('complement')}
+        error={errors.complement?.message}
+        rightText='Opcional'
       />
       <Input
         placeholder='Bairro'
         className='district'
         {...register('district')}
+        error={errors.district?.message}
       />
       <Input
         placeholder='Cidade'
         className='city'
         {...register('city')}
+        error={errors.city?.message}
       />
       <Input
         placeholder='UF'
         {...register('uf')}
+        error={errors.uf?.message}
       />
     </AddressFormContainer>
   );
