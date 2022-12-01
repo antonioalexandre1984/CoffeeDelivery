@@ -63,7 +63,7 @@ $ yarn start
 ### 🔗 Link para o projeto online
 
 
-[GitHub Blog](https://githubblog-omega.vercel.app/)
+[CoffeeDelivery](https://lscoffee.vercel.app/)
 
 &nbsp;
 
