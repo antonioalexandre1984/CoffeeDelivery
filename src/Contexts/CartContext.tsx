@@ -72,6 +72,7 @@ export function CartContextProvider({ children }: CartContextsProviderProps) {
   function removeCartItem(cartItemId: number) {
     const newCart = produce(cartItems, (draft) => {
       const cartItemIndex = draft.findIndex(cartItem => cartItem.id === cartItemId);
+
       if (cartItemIndex < 0) {
         return;
       }

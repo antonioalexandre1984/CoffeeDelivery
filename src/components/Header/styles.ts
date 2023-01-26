@@ -11,7 +11,6 @@ position: sticky;
 top: 0;
 left: 0;
 z-index: 5;
-
 > div {
     width: 100%;
     display: flex;
@@ -43,7 +42,6 @@ padding: 0 0.5rem;
 position: relative;
 font-size: ${({ theme }) => theme.textSizes["text-regular-s"]};
 cursor: inherit;
-
 span{
     position: absolute;
     width: 1.25rem;
@@ -58,16 +56,13 @@ span{
     font-size: 0.75rem;
     font-weight: 700;
 }
-
 ${({ variant, theme }) => css`
     background: ${theme.colors[`brand-${variant}-light`]};}
     color: ${theme.colors[`brand-${variant}-dark`]};
-
     span{
         background: ${theme.colors[`brand-${variant}-dark`]};
     }
 `}
-
 ${({ variant, theme }) =>
         variant === 'purple' &&
         css`
@@ -75,5 +70,4 @@ ${({ variant, theme }) =>
         color: ${({ theme }) => theme.colors[`brand-${variant}`]};
       }
 `}
-
 `;

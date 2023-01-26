@@ -50,6 +50,14 @@ export function CompleteOrderPage() {
     console.log(data);
     cleanCart();
   }
+  /* 
+     function handleConfirmOrder(data: ConfirmOrderFormData) {
+      navigate('/orderConfirmed', {
+        state: data,
+      });
+      console.log(data);
+      cleanCart();
+    } */
 
   return (
     <FormProvider {...confirmOrderForm}>
